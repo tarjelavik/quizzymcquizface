@@ -15,7 +15,7 @@ export default {
       title: 'Danger Zone - match state data',
       options: {
         collapsible: true,
-        collapsed: false
+        collapsed: true
       }
     }
   ],

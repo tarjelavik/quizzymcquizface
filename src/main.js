@@ -8,7 +8,7 @@ Vue.config.productionTip = false
 
 Vue.use(Vue2TouchEvents)
 
-Vue.prototype.$appName = 'Squizzy'
+Vue.prototype.$appName = 'Quizzy McQuizface'
 
 new Vue({
   router,

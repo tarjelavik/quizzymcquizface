@@ -45,9 +45,11 @@ class Question extends React.Component {
     const title = currentQuestion.title
     const titleLength = title.split('').length
     const audio = currentQuestion.audio
-    const questionImageUrl = urlFor(currentQuestion.image)
-      .width(300)
-      .url()
+    const questionImageUrl = currentQuestion.image
+      ? urlFor(currentQuestion.image)
+          .width(300)
+          .url()
+      : null
 
     return (
       <div className={styles.root}>
@@ -60,8 +62,8 @@ class Question extends React.Component {
             <div>
               {audio && (
                 <>
-                  <p>Hei</p>
-                  <audio controls src={audio}>
+                  <audio autoPlay>
+                    <source src={audio} type="audio/mpeg" />
                     Your browser does not support the
                     <code>audio</code> element.
                   </audio>

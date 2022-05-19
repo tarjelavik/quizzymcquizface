@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Asap&display=swap');
+
 :root {
 	/* Brand colors */
-	--brand-primary: #B04CFF;
-	--brand-primary--inverted:  var(--white);
+	--brand-primary: #1b0030;
+	--brand-primary--inverted: var(--white);
 	--brand-secondary: #00A84D;
-	--brand-secondary--inverted:  var(--white);
+	--brand-secondary--inverted: var(--white);
 	--color-red: #FF4C54;
 	--color-green: #00A84D;
 	/* Typography */
@@ -13,10 +14,10 @@
 	--text-color: #002152;
 	/* Main Navigation */
 	--main-navigation-color: var(--brand-primary);
-	--main-navigation-color--inverted:  var(--white);
+	--main-navigation-color--inverted: var(--white);
 	/* General */
 	--body-bg: var(--white);
-	--component-bg:  var(--white);
+	--component-bg: var(--white);
 	--white: #F9FAFF;
 	--black: #002152;
 	--state-success-color: var(--color-green);

@@ -20,9 +20,8 @@ export default {
   },
   data() {
     return {
-      title: 'Welcome to Squizzy!',
-      subtitle: 'To play, find a QR code to scan or a URL to follow',
-      status: 'Powered by Sanity',
+      title: 'Quizzy McQuizface!',
+      subtitle: 'For å spille, skann en QR kode eller følg en nettadresse.',
       expression: { mouth: 'happy' }
     }
   },
