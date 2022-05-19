@@ -17,11 +17,11 @@ const TopPlayers = props => {
       <div className={styles.header}>
         <Squizzy mouth="happy" className={styles.squizzy} />
         <div>
-          <h1>Match finished</h1>
-          <p>Thank you for playing!</p>
+          <h1>Quizzen er ferdig!</h1>
+          <p>Endelig, bra det er over!</p>
         </div>
       </div>
-      <h2>Top players</h2>
+      <h2>Topp, topp spørsmålssvarere!</h2>
       <ul className={leaderboard.list}>
         {players.map((player, index) => (
           <li className={leaderboard.item} key={player._key}>

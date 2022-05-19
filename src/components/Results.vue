@@ -4,11 +4,11 @@
     <div>
       <squizzy-squid :mouth="expression.mouth" :eyes="expression.eyes" />
       <p class="feedback-heading">{{ feedbackTitle }}</p>
-      <h1 class="question" :class="{long: question.title.split('').length > 60}">
+      <h1 class="question" :class="{ long: question.title.split('').length > 60 }">
         {{ question.title }}
       </h1>
       <div class="correct-answers">
-        <div class="label">Correct answer{{ correctAnswers.length > 1 ? 's' : '' }}</div>
+        <div class="label">Riktig svar{{ correctAnswers.length > 1 ? 's' : '' }}</div>
         <div class="answers">
           <div
             v-for="choice in correctAnswers"
@@ -30,12 +30,12 @@
     <div class="view-tracker">
       <div
         class="view-dot"
-        :class="{'is-active': activeView.name === 'results'}"
+        :class="{ 'is-active': activeView.name === 'results' }"
         @click="swipeLeft"
       ></div>
       <div
         class="view-dot"
-        :class="{'is-active': activeView.name === 'leaderboard'}"
+        :class="{ 'is-active': activeView.name === 'leaderboard' }"
         @click="swipeRight"
       ></div>
     </div>
@@ -45,27 +45,27 @@
 <script>
 import SquizzySquid from '@/components/general/SquizzySquid'
 const FEEDBACK_WRONG = [
-  'So inkompetant',
-  'That sucks',
-  'What a squidappointment',
-  'No inkling at all?',
-  `Are you squddin' me!`,
-  `Better luck next time...`,
-  'I squid you not',
-  `You don’t know squid`,
-  `No tentacle points for you`
+  'Så inkompetant',
+  'Wow, wow, wow, det var gale',
+  'Hmm, for en skuffelse',
+  'Ingen peiling?',
+  `Kødder du!?`,
+  `Bedre lykke neste gang...`,
+  'Nei, nei, nei...',
+  `Kunne du ikke den?`,
+  `Ingen poeng for deg`
 ]
 
 const FEEDBACK_CORRECT = [
-  `You're squidding it`,
-  'Consquidulations',
-  'A squid pro quo!',
-  'You are inkredible',
-  `The smartest squid in the room`,
-  'Inkredible effort',
-  'How exsquidsit',
-  `Tentacle points for you`,
-  `You're kraken it`
+  `Oh, korrekt!`,
+  'Gratulerer!',
+  'Hvem ville trodd!?',
+  'Flaks med den',
+  `Smarting`,
+  'Må ha krevd sitt',
+  'Tipptopptipptopp',
+  `Ta et poeng`,
+  `Fint for deg`
 ]
 
 const RESULT_VIEWS = {
@@ -86,7 +86,7 @@ export default {
   data() {
     return {
       activeView: RESULT_VIEWS.graph,
-      status: 'Waiting for Squizzmaster...'
+      status: 'Venter på sjefen...'
     }
   },
   computed: {

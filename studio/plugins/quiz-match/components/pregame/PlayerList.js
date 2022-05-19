@@ -24,7 +24,7 @@ function PlayerList(props) {
           })}
         {!players.length && (
           <li className={styles.noPlayers} key="no-players">
-            No players have joined yet...
+            Ingen spillere har blitt med...
           </li>
         )}
       </ul>

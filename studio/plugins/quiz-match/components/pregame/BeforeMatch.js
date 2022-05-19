@@ -43,7 +43,7 @@ class BeforeStart extends React.Component {
           </p>
           <MatchQrCode match={match} />
           <p className={styles.instructions}>
-            Scan the QR code to get started!
+            Skann QR koden for å starte!
             <br />
             <small></small>
           </p>
@@ -53,17 +53,17 @@ class BeforeStart extends React.Component {
         <section className={`${styles.section} ${styles.matchInfo}`}>
           <Squizzy mouth="happy" className={styles.squizzy} />
           <div>
-            <div className={styles.infoLabel}>Quiz Name</div>
+            <div className={styles.infoLabel}>Quiz navn</div>
             <h1 className={styles.quizName}>{quiz.title}</h1>
             <p className={styles.description}>{quiz.description}</p>
             <div className={styles.matchDetails}>
               <div>
                 <div className={styles.number}>{quiz.questions.length}</div>
-                <div className={styles.infoLabel}>Questions</div>
+                <div className={styles.infoLabel}>Spørsmål</div>
               </div>
               <div>
                 <div className={styles.number}>{players.length}</div>
-                <div className={styles.infoLabel}>Players</div>
+                <div className={styles.infoLabel}>Spillere</div>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ class BeforeStart extends React.Component {
               <strong>{matchClientUrl}</strong>
             </p>
             <MatchQrCode match={match} />
-            <p className={styles.instructions}>Scan the QR code to get started!</p>
+            <p className={styles.instructions}>Skann QR koden for å starte!</p>
           </div>
         </section>
       </div>

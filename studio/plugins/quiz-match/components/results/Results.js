@@ -27,13 +27,13 @@ class Results extends React.Component {
         <div className={styles.graph}>
           <div>
             <Squizzy mouth="happy" className={styles.resultSquizzy} />
-            <p className={styles.label}>Question</p>
+            <p className={styles.label}>Spørsmål</p>
             <h2 className={`${styles.heading} ${titleLength >= 50 ? styles.long : ''}`}>
               {currentQuestion.title}
             </h2>
           </div>
           <div className={styles.correctChoicesAnswerWrapper}>
-            <div className={styles.label}>Correct answer{correctChoices.length > 1 ? 's' : ''}</div>
+            <div className={styles.label}>Riktig svar{correctChoices.length > 1 ? 's' : ''}</div>
             <div className={styles.answers}>
               {correctChoices.map(choice => {
                 const Symbol = Icons[choice.index]

@@ -17,8 +17,8 @@
       <template v-else>
         <div class="question-status">
           <squizzy-squid class="confirmation-squizzy" eyes="happy" />
-          <h1 class="title">Answer submitted!</h1>
-          <p>Waiting for other players...</p>
+          <h1 class="title">Svar sendt inn!</h1>
+          <p>Venter på flere spillere...</p>
         </div>
       </template>
     </div>

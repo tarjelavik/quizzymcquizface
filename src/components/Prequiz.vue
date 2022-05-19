@@ -59,7 +59,7 @@ export default {
       const player = this.$store.state.playerStore.player
       return this.activeView.name !== 'lobby'
         ? `${this.match && player ? 'Joined' : 'Joined'}: ${this.match.quiz.title}`
-        : 'Powered by Sanity'
+        : 'Powered by Tarje'
     },
 
     activeView() {
@@ -71,8 +71,8 @@ export default {
       if (this.isFinished)
         return {
           name: 'Finished',
-          title: 'Thank you for playing!',
-          subtitle: 'The match finished, did you have a squid time?',
+          title: 'Takk for at du deltok!',
+          subtitle: 'Quizzen er ferdig, bra for deg!',
           status: this.match.quiz.title,
           expression: { mouth: 'happy' }
         }
@@ -81,16 +81,16 @@ export default {
       if (!player)
         return {
           name: 'register',
-          title: `Squizzy time!`,
-          status: `Joining: ${title}`,
+          title: `Tid for quiz!`,
+          status: `Blir med på: ${title}`,
           expression: { eyes: 'happy', mouth: 'default' }
         }
 
       return {
         name: 'welcome',
-        title: `Hello ${player.name}!`,
-        subtitle: 'Game is about to start. Waiting for the Squizzmaster...',
-        status: `Joined: ${title}`,
+        title: `Heiheihei ${player.name}!`,
+        subtitle: 'Quizzen starter snart. Venter på den spørrende entiteten...',
+        status: `Ble med på: ${title}`,
         expression: { eyes: 'default', mouth: 'happy' }
       }
     },
@@ -115,7 +115,7 @@ export default {
     registerExistingPlayer() {
       return this.$store.dispatch('playerStore/registerExistingPlayer').then(response => {
         if (!response) {
-          this.error = 'Something went wrong, please try again.'
+          this.error = 'Noe gikk galt, prøv igjen.'
           this.$emit('error', this.error)
         } else {
           this.error = false

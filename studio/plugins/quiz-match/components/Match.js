@@ -239,7 +239,7 @@ class Match extends React.Component {
                 title="Create new match"
                 className={styles.button}
               >
-                Create new match
+                Lag ny quiz match
               </IntentButton>
             </div>
           </div>
@@ -253,22 +253,22 @@ class Match extends React.Component {
               color="success"
               className={styles.button}
             >
-              Start game
+              Start quizzen
             </Button>
           )}
           {isOngoing && !isFinalQuestionCompleted && !isCurrentQuestionOpen && (
             <>
               <Button onClick={this.handleCancelMatch} color="danger" className={styles.button}>
-                Cancel match
+                Avbryt quizzen
               </Button>
               <Button onClick={this.handleNextQuestion} color="success" className={styles.button}>
-                Next question
+                Neste spørsmål
               </Button>
             </>
           )}
           {isOngoing && isFinalQuestionCompleted && (
             <Button color="success" onClick={this.handleFinishMatch} className={styles.button}>
-              Finish game
+              Avslutt quizzen
             </Button>
           )}
         </div>
