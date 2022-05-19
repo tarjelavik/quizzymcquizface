@@ -33,7 +33,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
 button
   background: $color-gray--darker
   color: $color-white

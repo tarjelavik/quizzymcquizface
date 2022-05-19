@@ -58,7 +58,7 @@ export const scoresByPlayer = (match, questionKey = 0) => {
     .map(question => question._key)
     .indexOf(currentQuestionKey)
 
-  if (players.length === 0) {
+  if (!players || players.length === 0) {
     return []
   }
 

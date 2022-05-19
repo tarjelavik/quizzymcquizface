@@ -15,7 +15,7 @@
 
 <script>
 import Column from './Column'
-import {answerDistribution} from '../../utils'
+import { answerDistribution } from '../../utils'
 export default {
   components: {
     'v-column': Column
@@ -25,7 +25,10 @@ export default {
       return this.$store.state.matchStore.match
     },
     totalAnswerCount() {
-      const count = this.getAnswerDistribution.reduce((sum, {answerCount}) => sum + answerCount, 0)
+      const count = this.getAnswerDistribution.reduce(
+        (sum, { answerCount }) => sum + answerCount,
+        0
+      )
       return count
     },
     playerAnswer() {

@@ -74,7 +74,7 @@ export default {
           title: 'Thank you for playing!',
           subtitle: 'The match finished, did you have a squid time?',
           status: this.match.quiz.title,
-          expression: {mouth: 'happy'}
+          expression: { mouth: 'happy' }
         }
 
       // Register for match if no Player
@@ -83,7 +83,7 @@ export default {
           name: 'register',
           title: `Squizzy time!`,
           status: `Joining: ${title}`,
-          expression: {eyes: 'happy', mouth: 'default'}
+          expression: { eyes: 'happy', mouth: 'default' }
         }
 
       return {
@@ -91,7 +91,7 @@ export default {
         title: `Hello ${player.name}!`,
         subtitle: 'Game is about to start. Waiting for the Squizzmaster...',
         status: `Joined: ${title}`,
-        expression: {eyes: 'default', mouth: 'happy'}
+        expression: { eyes: 'default', mouth: 'happy' }
       }
     },
 

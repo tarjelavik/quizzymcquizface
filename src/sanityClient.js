@@ -1,5 +1,5 @@
 const sanityClient = require('@sanity/client')
-const {sanityClientConfig} = require('../sanityClientConfig')
+const { sanityClientConfig } = require('../sanityClientConfig')
 
 if (sanityClientConfig.projectId === 'puj7p168') {
   console.error(

@@ -41,10 +41,8 @@ main > *
   height: 100% // To be fixed
   background: $color-white
 
-
 main > :first-child
   z-index: 10 // Prevent flickering on first frame when transition classes not added yet
-
 
 /* Transitions */
 
@@ -55,7 +53,6 @@ main > :first-child
 .next-enter-to
   animation: enterFromRight 600ms both cubic-bezier(0.165, 0.84, 0.44, 1)
   z-index: 1
-
 
 .prev-leave-to
   animation: leaveToRight 600ms both cubic-bezier(0.165, 0.84, 0.44, 1)

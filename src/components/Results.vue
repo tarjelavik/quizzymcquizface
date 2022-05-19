@@ -78,7 +78,7 @@ const RESULT_VIEWS = {
     component: () => import('./result/Leaderboard.vue')
   }
 }
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     SquizzySquid
@@ -110,8 +110,8 @@ export default {
     },
     expression() {
       return this.playerAnswer.isCorrect
-        ? {eyes: 'happy', mouth: 'happy'}
-        : {eyes: 'default', mouth: 'sad-open'}
+        ? { eyes: 'happy', mouth: 'happy' }
+        : { eyes: 'default', mouth: 'sad-open' }
     },
     question() {
       const question = this.$store.getters['matchStore/currentQuestion']
@@ -171,7 +171,6 @@ export default {
     font-size: $font-size-medium
   &.long
     font-size: $font-size-medium
-
 
 .correct-answers
   text-align: center

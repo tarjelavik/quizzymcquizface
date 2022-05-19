@@ -11,16 +11,15 @@ export default {
   props: {
     color: {
       type: String,
-      default: ""
+      default: ''
     }
   }
-};
+}
 </script>
 
 <style lang="sass" scoped>
 .spinner
   text-align: center
-
 
 .circle
   width: 0.8rem
@@ -32,7 +31,6 @@ export default {
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both
   animation: sk-bouncedelay 1.4s infinite ease-in-out both
 
-
 .inherit .circle
   background: inherit
 
@@ -40,22 +38,18 @@ export default {
   -webkit-animation-delay: -0.32s
   animation-delay: -0.32s
 
-
 .spinner .bounce2
   -webkit-animation-delay: -0.16s
   animation-delay: -0.16s
-
 
 @-webkit-keyframes sk-bouncedelay
   0%,
   80%,
   100%
-    -webkit-transform: scale(0)
+  -webkit-transform: scale(0)
 
   40%
-    -webkit-transform: scale(1)
-
-
+  -webkit-transform: scale(1)
 
 @keyframes sk-bouncedelay
   0%,

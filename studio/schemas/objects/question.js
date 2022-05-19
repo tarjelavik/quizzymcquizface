@@ -36,6 +36,15 @@ export default {
       validation: Rule => Rule.required().error('You must set a time limit.')
     },
     {
+      name: 'audio',
+      title: 'Audio',
+      description: 'Use for music quizzes.',
+      type: 'file',
+      options: {
+        accept: 'audio/*'
+      }
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',

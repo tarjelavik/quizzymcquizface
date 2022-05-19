@@ -23,7 +23,7 @@ export default {
       title: 'Welcome to Squizzy!',
       subtitle: 'To play, find a QR code to scan or a URL to follow',
       status: 'Powered by Sanity',
-      expression: {mouth: 'happy'}
+      expression: { mouth: 'happy' }
     }
   },
   beforeRouteEnter(to, from, next) {
@@ -31,7 +31,7 @@ export default {
       next(vm => {
         vm.title = to.params.title
         vm.subtitle = to.params.subtitle
-        vm.expression = {eyes: 'default', mouth: 'sad-open'}
+        vm.expression = { eyes: 'default', mouth: 'sad-open' }
       })
     } else {
       next()

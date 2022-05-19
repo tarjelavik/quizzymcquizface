@@ -1,11 +1,13 @@
 import React from 'react'
-import client from 'part:@sanity/base/client'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from '../styles/Question.css'
 import Icons from '../Icons'
 import AnswerCount from './AnswerCount'
 import Countdown from './Countdown'
 import {findCurrentQuestion} from '../../utils'
+import sanityClient from 'part:@sanity/base/client'
+
+const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
 const builder = imageUrlBuilder(client)
 function urlFor(source) {
@@ -42,6 +44,7 @@ class Question extends React.Component {
     const currentQuestion = findCurrentQuestion(match)
     const title = currentQuestion.title
     const titleLength = title.split('').length
+    const audio = currentQuestion.audio
     const questionImageUrl = urlFor(currentQuestion.image)
       .width(300)
       .url()
@@ -53,6 +56,17 @@ class Question extends React.Component {
           <div className={styles.title}>
             <div className={styles.questionImage}>
               {questionImageUrl && <img className={styles.imageSrc} src={questionImageUrl} />}
+            </div>
+            <div>
+              {audio && (
+                <>
+                  <p>Hei</p>
+                  <audio controls src={audio}>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </>
+              )}
             </div>
             <h1
               className={`

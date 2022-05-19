@@ -51,7 +51,7 @@ export default {
       }
       const playerId = this.$store.getters['playerStore/playerId']
       const match = this.$store.state.matchStore.match
-      const {answers = []} = match
+      const { answers = [] } = match
       const answer = answers.find(
         answer => answer.questionKey === match.currentQuestionKey && answer.player._id === playerId
       )
@@ -65,7 +65,7 @@ export default {
 .question-choices
   display: grid
   grid-template-columns: 1fr 1fr
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr
   gap: 0.5rem
   padding: 0.5rem
 

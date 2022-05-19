@@ -1,8 +1,8 @@
-import {isEmpty} from 'lodash'
-import {asyncScheduler} from 'rxjs'
-import {throttleTime} from 'rxjs/operators'
+import { isEmpty } from 'lodash'
+import { asyncScheduler } from 'rxjs'
+import { throttleTime } from 'rxjs/operators'
 import client from '../../sanityClient'
-import {submitAnswerToQuestion} from '../squizzyServerApi'
+import { submitAnswerToQuestion } from '../squizzyServerApi'
 
 // Query to get all info about a match
 const query = `
@@ -27,11 +27,11 @@ const mutations = {
 
 const actions = {
   // Get the match to play
-  getMatchDetails({dispatch}, slug) {
+  getMatchDetails({ dispatch }, slug) {
     dispatch('stopListener')
-    dispatch('matchStore/resetMatch', false, {root: true})
+    dispatch('matchStore/resetMatch', false, { root: true })
     return client
-      .fetch(query, {slug})
+      .fetch(query, { slug })
       .then(match => {
         if (isEmpty(match)) {
           return false
@@ -41,7 +41,7 @@ const actions = {
         dispatch('startListener', match.slug.current)
 
         // Set the match details
-        dispatch('matchStore/setMatchDetails', match, {root: true})
+        dispatch('matchStore/setMatchDetails', match, { root: true })
 
         // Return to beforeEnter route on /match/:id
         return true
@@ -52,24 +52,24 @@ const actions = {
       })
   },
 
-  startListener({dispatch, rootGetters}, matchSlug) {
+  startListener({ dispatch, rootGetters }, matchSlug) {
     const slug = matchSlug || rootGetters['matchStore/slug']
     if (slug) {
       subscription = client
         .listen(
           listenerQuery,
-          {slug},
+          { slug },
           {
             includeResult: false,
             visibility: 'query',
             events: ['welcome', 'mutation', 'reconnect']
           }
         )
-        .pipe(throttleTime(1000, asyncScheduler, {trailing: true})) // Safety valve in case a huge number of events arrive at once (e.g. many players answering simulatneously)
+        .pipe(throttleTime(1000, asyncScheduler, { trailing: true })) // Safety valve in case a huge number of events arrive at once (e.g. many players answering simulatneously)
         .subscribe(async () => {
           // Something has happened with the match doc, let's fetch it
-          const match = await client.fetch(query, {slug})
-          dispatch('matchStore/setMatchDetails', match, {root: true})
+          const match = await client.fetch(query, { slug })
+          dispatch('matchStore/setMatchDetails', match, { root: true })
         })
     }
   },
@@ -80,8 +80,8 @@ const actions = {
     }
   },
 
-  submitAnswer({rootState}, key) {
-    const {playerStore, matchStore} = rootState
+  submitAnswer({ rootState }, key) {
+    const { playerStore, matchStore } = rootState
     const params = {
       playerId: playerStore.player.id,
       matchSlug: matchStore.match.slug.current,

@@ -1,5 +1,3 @@
-import UUID from '@sanity/uuid'
-
 export default {
   name: 'siteConfig',
   title: 'Site Config',

@@ -1,7 +1,7 @@
-import UUID from '@sanity/uuid'
+import {uuid} from '@sanity/uuid'
 import {MdTv} from 'react-icons/md'
 
-const createSlug = () => UUID().substring(0, 5)
+const createSlug = () => uuid().substring(0, 5)
 
 export default {
   name: 'match',

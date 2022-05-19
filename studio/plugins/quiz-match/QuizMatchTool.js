@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 import {StateLink, withRouterHOC, IntentLink} from 'part:@sanity/base/router'
 import Spinner from 'part:@sanity/components/loading/spinner'
 import Preview from 'part:@sanity/base/preview'
-import client from 'part:@sanity/base/client'
 import schema from 'part:@sanity/base/schema'
 import Squizzy from './components/Squizzy'
 import Match from './components/Match'
+import sanityClient from 'part:@sanity/base/client'
+
+const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
 import styles from './QuizMatchTool.css'
 
@@ -22,9 +24,29 @@ const playableMatchesQuery = `//groq
     defined(quiz) && // which have a quiz attached
     defined(quiz->questions) && // the quiz needs questions
     !(_id in path("drafts.**")) // filter out matches that's not published
-  ]| order (_updatedAt desc) // order them by last updated
+  ]| order(_updatedAt desc) // order them by last updated
   [0...50] // only show the last 50 updated
   `
+
+const matchQuery = `//groq
+  *[_type == "match"][0]{
+    ..., 
+    quiz->{
+      ..., 
+      questions[]{
+        ..., 
+        "audio": audio.asset->url
+      }
+    }, 
+    players != null => {
+      players[]->
+    },
+    answers[]{
+      ...,
+      player->
+    }
+  }
+`
 
 class QuizMatchTool extends React.Component {
   state = {
@@ -113,9 +135,7 @@ class QuizMatchTool extends React.Component {
     const documentId = this.props.router.state.selectedDocumentId
     if (documentId) {
       client
-        .fetch(`*[_id==$documentId][0]{..., quiz->, players[]->, answers[]{...,player->}}`, {
-          documentId
-        })
+        .fetch(matchQuery, {documentId})
         .then(match => this.setState({match}))
         .catch(error => console.log(error))
     }

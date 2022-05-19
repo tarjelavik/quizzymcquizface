@@ -1,9 +1,11 @@
 import React from 'react'
-import client from 'part:@sanity/base/client'
 import imageUrlBuilder from '@sanity/image-url'
 import {findCurrentQuestion} from '../../utils'
 import Squizzy from '../Squizzy'
 import styles from '../styles/Countdown.css'
+import sanityClient from 'part:@sanity/base/client'
+
+const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
 import * as config from '../../../../quizConfig'
 const {defaultTimeLimit} = config.default.schema

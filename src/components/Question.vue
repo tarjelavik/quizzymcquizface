@@ -34,7 +34,7 @@
 import QuestionImage from './question/QuestionImage'
 import QuestionChoices from './question/QuestionChoices'
 import SquizzySquid from './general/SquizzySquid'
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     QuestionImage,
@@ -55,7 +55,7 @@ export default {
       }
       const player = this.$store.state.playerStore.player
       const match = this.$store.state.matchStore.match
-      const {answers = []} = match
+      const { answers = [] } = match
       return answers.some(
         answer => answer.questionKey === match.currentQuestionKey && answer.player._id === player.id
       )
@@ -74,18 +74,18 @@ export default {
   flex-grow: 1
   height: 100%
   display: grid
-  grid-template-areas: status       question               choices
-  grid-template-rows: min-content   minmax(100px, 450px)   1fr
+  grid-template-areas: status question choices
+  grid-template-rows: min-content minmax(100px, 450px) 1fr
   height: 100%
   width: 100%
   overflow: hidden
   gap: 1rem
   @media screen and (max-height: 1024px)
-    grid-template-rows: min-content   minmax(100px, 300px)   1fr
+    grid-template-rows: min-content minmax(100px, 300px) 1fr
   @media screen and (max-height: 737px)
-    grid-template-rows: min-content   minmax(100px, 250px)   1fr
+    grid-template-rows: min-content minmax(100px, 250px) 1fr
   @media screen and (max-height: 569px)
-    grid-template-rows: min-content   minmax(100px, 200px)   1fr
+    grid-template-rows: min-content minmax(100px, 200px) 1fr
 
 .question
   display: grid

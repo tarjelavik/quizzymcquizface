@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {get} from 'lodash'
 
-import {withRouterHOC} from 'part:@sanity/base/router' // eslint-disable-line
-import client from 'part:@sanity/base/client' // eslint-disable-line
+import { withRouterHOC } from 'part:@sanity/base/router' // eslint-disable-line
 import Button from 'part:@sanity/components/buttons/default' // eslint-disable-line
 import Spinner from 'part:@sanity/components/loading/spinner' // eslint-disable-line
 import IntentButton from 'part:@sanity/components/buttons/intent' // eslint-disable-line
@@ -16,6 +15,10 @@ import {allPlayersHaveSubmitted, scoresByPlayer} from '../utils'
 import styles from './styles/Match.css'
 import TopPlayers from './TopPlayers'
 import MediaPlayer from './MediaPlayer'
+
+import sanityClient from 'part:@sanity/base/client'
+
+const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
 function nextQuestion(match) {
   const {currentQuestionKey, quiz} = match
@@ -199,8 +202,9 @@ class Match extends React.Component {
 
     const hasPlayers = match.players && match.players.length > 0
     const hasQuestions = quiz.questions && get(quiz, 'questions', []).length > 0
-
+    console.log(JSON.stringify(match, null, 2))
     const topPlayers = scoresByPlayer(match).slice(0, 3)
+    console.log(JSON.stringify(topPlayers, null, 2))
     return (
       <div className={styles.root}>
         {isNotYetStarted && (

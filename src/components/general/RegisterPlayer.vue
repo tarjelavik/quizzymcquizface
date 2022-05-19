@@ -69,7 +69,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
 .register-player
   display: flex
   flex-direction: column
@@ -84,7 +83,7 @@ export default {
   outline: 0
   background: 0
   border: 1px solid $color-gray
-  -webkit-appearance:none
+  -webkit-appearance: none
   border-radius: $border-radius
   padding: 0.5rem 1rem
   text-align: center

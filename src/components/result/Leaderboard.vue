@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {scoresByPlayer} from '../../utils'
+import { scoresByPlayer } from '../../utils'
 export default {
   props: {
     topPlayers: {

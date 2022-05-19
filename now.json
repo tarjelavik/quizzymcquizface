@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "squizzy",
+  "name": "quizzy",
   "env": {
     "SQUIZZY_WRITE_TOKEN": "@squizzy_write_token"
   }
